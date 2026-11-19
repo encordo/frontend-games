@@ -1,0 +1,158 @@
+* {
+    font-family: Arial;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eee;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+.naipe {
+    margin: 5px;
+    padding: 3px;
+    display: inline-block;
+    border: 1px solid black;
+    height: 130px;
+    width: 80px;
+    border-radius: 5px;
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tapado {
+    background-image: url('bg.jpg');
+    background-repeat: repeat;
+    color: yellow !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.destapado {
+    background-color: white;
+    color: inherit;
+}
+
+.heart {
+    color: red;
+}
+
+.club {
+    color: green;
+}
+
+.spade {
+    color: navy;
+}
+
+.diamond {
+    color: orange;
+}
+
+.palo {
+    text-align: center;
+    font-size: 47px;
+}
+
+.dist {
+    text-align: center;
+    font-size: 30px;
+}
+
+.crs {
+    text-align: left;
+}
+
+.cri {
+    text-align: right;
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+#tapete {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgb(29,166,94);
+    /* background-color: lightgrey; */
+    border: 1px solid black;
+}
+
+#b_np {
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+#slot_mazo {
+    text-align: center;
+    display: inline;
+    height: 150px;
+}
+
+#slot_crupier,
+#sc_label {
+    text-align: left;
+}
+
+#slot_jugador,
+#sp_label {
+    text-align: right;
+}
+
+#m_crupier,
+#m_jugador {
+    font-weight: bold;
+}
+
+#b_pasa {
+    font-size: 20px;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+}
+
+#d_pasa {
+    display: inline-block;
+    margin: 5px;
+    vertical-align: middle;
+    height: 100%;
+}
+
+#gs_banner {
+    position: absolute;
+    top: 300px;
+    left: 0px;
+    z-index: 100;
+    width: 100%;
+    background-color: transparent;
+    font-size: 100px;
+    font-weight: bold;
+    display: none;
+    /************************/
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sudoku</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<script type="module" src="scripts.js"></script>
+</head>
+
+<body>
+	<div id="master">
+		<div id="titulo">Sudoku</div>
+		<div id="estado"></div>
+		<div id="sudoku">
+			<div class="hilera">
+				<div id="cr1" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c111" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c112" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c113" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c121" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c122" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c123" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c131" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c132" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c133" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+				<div id="cr2" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c214" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c215" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c216" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c224" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c225" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c226" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c234" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c235" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c236" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+				<div id="cr3" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c317" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c318" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c319" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c327" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c328" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c329" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c337" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c338" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c339" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+			</div>
+			<div class="hilera">
+				<div id="cr4" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c441" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c442" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c443" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c451" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c452" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c453" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c461" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c462" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c463" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+				<div id="cr5" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c544" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c545" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c546" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c554" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c555" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c556" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c564" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c565" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c566" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+				<div id="cr6" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c647" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c648" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c649" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c657" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c658" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c659" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c667" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c668" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c669" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+			</div>
+			<div class="hilera">
+				<div id="cr7" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c771" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c772" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c773" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c781" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c782" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c783" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c791" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c792" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c793" type="text"/></div>
+					</div>
+				</div>
+				<div id="cr8" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c874" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c875" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c876" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c884" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c885" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c886" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c894" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c895" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c896" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+				<div id="cr9" class="cuadrante">
+					<div class="fila">
+						<div class="celda"><input id="c977" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c978" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c979" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c987" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c988" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c989" type="text" maxlength="1"/></div>
+					</div>
+					<div class="fila">
+						<div class="celda"><input id="c997" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c998" type="text" maxlength="1"/></div>
+						<div class="celda"><input id="c999" type="text" maxlength="1"/></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="c_dificultad">
+			<label for="s_dificultad">Dificultad:</label>
+			<!-- <input type="number" id="i_dificultad" max="50" min="25" step="1" required> -->
+			 <select id="s_dificultad">
+				<option value="30">Fácil</option>
+				<option value="25" selected>Medio</option>
+				<option value="20">Difícil</option>
+			 </select>
+		</div>
+		<div id="botonera">
+			<input type="button" value="Comprobar" id="b_comprobar">
+			<input type="button" value="Nueva Partida" id="b_np">
+		</div>
+		<div id="datos-partida"></div>
+	</div>
+</body>
+
+</html>

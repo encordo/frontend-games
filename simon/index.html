@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            font-size: 50px;
+            margin-bottom: 25px;
+        }
+        .boton{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+        .fila{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #maestro{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px;
+        }
+        #simon{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background-color: black;
+            border-radius: 50%;
+            width: 500px;
+            height: 500px;
+            margin-bottom: 25px;
+        }
+        #b_rojo{
+            background-color: #800000;
+            border: 1px solid black;
+            border-radius: 100% 0% 0% 0%;
+        }
+        #b_azul{
+            background-color: blue;
+            border: 1px solid black;
+            border-radius: 0% 100% 0% 0%;
+        }
+ 
+        #b_verde{
+            background-color: green;
+            border: 1px solid black;
+            border-radius: 0% 0% 0% 100%;
+        }
+        #b_amarillo{
+            background-color: #808000;
+            border: 1px solid black;
+            border-radius: 0% 0% 100% 0%;
+        }
+        #b_reset{
+            width: fit-content;
+            margin:10px;
+            font-size: xx-large;
+            padding: 10px;
+        }
+        #cabecera{
+            justify-content: center;
+            text-align: center;
+        }
+        #exito{
+            font-size: 60px;
+        }
+        /*Iluimación*/
+        #b_rojo:active{
+            background-color: red;
+        }   
+        #b_azul:active{
+            background-color: deepskyblue;
+        }
+        #b_verde:active{
+            background-color: lime;
+        }
+        #b_amarillo:active{
+            background-color: yellow;
+        }       
+
+    </style>
+    <script>
+        //var temp = []; //handler del temporizador
+        var patron;
+        var paso_vigente;
+        //var equiv = {"R":"b_rojo","G":"b_verde","B":"b_azul","Y":"b_amarillo"};
+        //Funciones auxiliares
+        function escogeNumero(total){
+			//Escoge un número entre 0 y el parámetro total
+			return Math.floor(Math.random()*total);
+		}
+        function ilumina(color){
+            //Dependiendo del código ilumniará el botón correspondiente con el color adecuado
+            if (color=="R"){
+                document.getElementById("b_rojo").style.backgroundColor = "red";
+            }else if(color=="B"){
+                document.getElementById("b_azul").style.backgroundColor ="deepskyblue";
+            }else if(color=="G"){
+                document.getElementById("b_verde").style.backgroundColor ="lime";
+            } else if(color=="Y"){
+                document.getElementById("b_amarillo").style.backgroundColor ="yellow";
+            } else{
+                // alert("la caga 1");
+            }
+            //Esperará 1s para lanzar el apagado del citado color
+            setTimeout(apaga,1000,color);
+        }
+        function apaga(color){
+            //Dependiendo del código apagará el color y reactivará los eventos de ratón para que se ilumine si está "activo".
+            if (color=="R"){
+                document.getElementById("b_rojo").style.backgroundColor ="#800000";
+                let b = document.querySelector('#b_rojo');
+                b.addEventListener('mousedown',()=> {
+                    b.style.backgroundColor = 'red';
+                });
+                b.addEventListener('mouseup',()=> {
+                    b.style.backgroundColor = '#800000';
+                });
+               // alert("debería funciona");
+            }else if(color=="B"){
+                document.getElementById("b_azul").style.backgroundColor ="blue";
+                let b = document.querySelector('#b_azul');
+                b.addEventListener('mousedown',()=> {
+                    b.style.backgroundColor = 'deepskyblue';
+                });
+                b.addEventListener('mouseup',()=> {
+                    b.style.backgroundColor = 'blue';
+                });
+            }else if(color=="G"){
+                document.getElementById("b_verde").style.backgroundColor ="green";
+                let b = document.querySelector('#b_verde');
+                b.addEventListener('mousedown',()=> {
+                    b.style.backgroundColor = 'lime';
+                });
+                b.addEventListener('mouseup',()=> {
+                    b.style.backgroundColor = 'green';
+                });
+            } else if(color=="Y"){
+                document.getElementById("b_amarillo").style.backgroundColor ="#808000";
+                let b = document.querySelector('#b_amarillo');
+                b.addEventListener('mousedown',()=> {
+                    b.style.backgroundColor = 'yellow';
+                });
+                b.addEventListener('mouseup',()=> {
+                    b.style.backgroundColor = '#808000';
+                });
+            } else{
+                // alert("la caga 1");
+            }
+        }
+        function getSerie(){
+            //Crea array vacío
+            patron = [];
+            //Inicializa el índice del juego
+            paso_vigente = 0;
+            //Lo va llenando con códigos aleatorios
+            for(let i = 0; i<5; i++){
+                let b = escogeNumero(4);
+                switch(b){
+                    case 0: patron[i] = "R";break;
+                    case 1: patron[i] = "B";break;
+                    case 2: patron[i] = "G";break;
+                    case 3: patron[i] = "Y";break;
+                    default: alert("Fallo");
+                }
+            }
+            //alert(patron);
+        }
+        function playSerie(pos){
+            //Ilumina el color indicado
+            ilumina(patron[pos]);
+            //Una vez hecho esto si hay más colores los hace iluminar recursivamente.
+            if(pos<patron.length){ 
+                setTimeout(playSerie,1500,pos + 1);
+            //Si ha terminado, reactiva el botón de reset
+            } else{
+                document.getElementById("b_reset").addEventListener("click",pulsaReset);
+            }
+        }
+        function empezarPartida(){
+            //Lanza la secuencia con un retardo de 1s
+            setTimeout(playSerie,1000,0);
+        }
+        function terminarPartida(){
+            document.getElementById("b_amarillo").removeEventListener("click",pulsaAmarillo);
+            document.getElementById("b_rojo").removeEventListener("click", pulsaRojo);
+            document.getElementById("b_azul").removeEventListener("click", pulsaAzul);
+            document.getElementById("b_verde").removeEventListener("click", pulsaVerde);
+        }
+        function hasGanado(){
+            //Respuesta si se ha acertado
+            alert("Lo conseguiste");
+            let exito = document.getElementById("exito");
+            exito.style.display = "inline";
+            exito.innerHTML = "&#129321;";
+            terminarPartida();
+        }
+            //Respuesta si se ha perdido
+        function hasPerdido(){
+            alert("Fallaste");
+            let exito = document.getElementById("exito");
+            exito.style.display = "inline";
+            exito.innerHTML = "&#128128;";
+            terminarPartida();
+        }
+        //Funciones de los botones
+        function pulsaReset(){
+            document.getElementById("exito").innerHTML="&#128578;";
+            //Desactiva reset
+            document.getElementById("b_reset").removeEventListener("click",pulsaReset);
+            //Genera el patrón y lo muestra
+            getSerie();
+            empezarPartida();
+            //playSerie(0);
+            //Activa los botones
+            document.getElementById("b_rojo").addEventListener("click", pulsaRojo);
+            document.getElementById("b_azul").addEventListener("click", pulsaAzul);
+            document.getElementById("b_verde").addEventListener("click", pulsaVerde);
+            document.getElementById("b_amarillo").addEventListener("click", pulsaAmarillo);
+        }
+        //Para cada botón se evalúa si es el correcto y si se sigue o se termina el juego
+        function pulsaRojo(){
+              if(patron[paso_vigente]=="R"){
+                if(++paso_vigente==patron.length){
+                    hasGanado();
+                }
+              } else{
+                hasPerdido();
+              }
+        }
+        function pulsaAzul(){
+               if(patron[paso_vigente]=="B"){
+                if(++paso_vigente==patron.length){
+                    hasGanado();
+                }
+              } else{
+                hasPerdido();
+              } 
+        }
+        function pulsaVerde(){
+            if(patron[paso_vigente]=="G"){
+                if(++paso_vigente==patron.length){
+                    hasGanado();
+                }
+            } else{
+                hasPerdido();
+            } 
+        }
+        function pulsaAmarillo(){
+            if(patron[paso_vigente]=="Y"){
+                if(++paso_vigente==patron.length){
+                    hasGanado();
+                }
+            } else{
+                hasPerdido();
+            } 
+        }
+        /* function pulsaColor(){
+            if(patron[paso_vigente]==""){
+                if(++paso_vigente==patron.length){
+                    hasGanado();
+                }
+            } else{
+                hasPerdido();
+            } 
+        } */
+        //Cuerpo principal
+        window.onload = function(){
+            //Activa los 5 botones
+            document.getElementById("b_reset").addEventListener("click",pulsaReset);
+            document.getElementById("b_rojo").addEventListener("click", pulsaRojo);
+            document.getElementById("b_azul").addEventListener("click", pulsaAzul);
+            document.getElementById("b_verde").addEventListener("click", pulsaVerde);
+            document.getElementById("b_amarillo").addEventListener("click", pulsaAmarillo);
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="maestro">
+        <div id="cabecera"><h1>Simon <span id="exito">&#128578;</span></h1></div>
+        <div id="simon">
+            <div class="fila">
+                <div class="boton" id="b_rojo"></div>
+                <div class="boton" id="b_azul"></div>
+            </div>
+            <div class="fila">
+                <div class="boton" id="b_verde"></div>
+                <div class="boton" id="b_amarillo"></div>
+            </div>
+        </div>
+        <div><input id="b_reset" type="button" value="Empezar"></div>
+    </div>
+</body>
+</html>

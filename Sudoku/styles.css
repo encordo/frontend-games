@@ -1,0 +1,142 @@
+* {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    /*user-select: none;*/
+}
+
+body{
+    background-image: linear-gradient(to bottom right, #FFF, #DDD);
+    height: 100vh;
+}
+
+/*Selectores*/
+input {
+    font-size: 30px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    appearance: textfield;
+    border: 1px solid grey;
+}
+
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover
+    -webkit-appearance: none;
+} */
+
+/*input::outer-spin-button, input::inner-spin-button {
+            appearance: none;
+		}*/
+/*Clases*/
+/* .hilera {} */
+
+.cuadrante {
+    display: inline-block;
+    border: 1px solid black;
+    float: left;
+    /*Fuerza la eliminación de los márgenes*/
+}
+
+/* .fila {} */
+
+.celda {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    float: left;
+    /*Fuerza la eliminación de los márgenes*/
+}
+
+.fija {
+    background-color: #e8e8e8;
+    color: grey;
+}
+
+.correcta {
+    background-color: #cf9;
+    color: green;
+}
+
+.incorrecta {
+    background-color: #ffe5cc;
+    color: red;
+    text-decoration: line-through;
+}
+.correcto{
+    color: green;
+}
+
+.incorrecto{
+    color: red;
+}
+
+/*IDs*/
+#titulo {
+    font-size: 50px;
+    margin: 20px 0px;
+}
+
+#estado{
+    font-size: 25px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#sudoku {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 1rem;
+}
+
+#c_dificultad{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+#c_dificultad *{
+    width: auto;
+    height: auto;
+    margin: 0 0.25rem;
+}
+
+#c_dificultad label{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#s_dificultad {
+    font-size: 1.5rem;
+}
+
+#botonera {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#botonera input {
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    margin: 0 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* transition: background-image 0.4s ease; */
+    background: radial-gradient(#FFF, #CCC);
+}
+
+#botonera input:hover {
+    background: radial-gradient(#DDD, #AAA);
+}
+
+#datos-partida{
+    font-size: 20px;
+    margin: 20px;
+}
