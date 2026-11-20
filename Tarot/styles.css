@@ -11,6 +11,7 @@
     /* padding: 3px; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     border: 1px solid black;
     height: 180px;
     width: 111px;
@@ -21,6 +22,7 @@
 
 .naipe * {
     align-content: center;
+    justify-content: center;
 }
 
 .tapado {
@@ -45,6 +47,9 @@
 
 .icono {
     font-size: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1 1 80%;
 }
 
@@ -88,9 +93,6 @@
 }
 
 #tapete {
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
     border: 1px solid black;
     background-color: green;
     border-radius: 10px;
