@@ -7,6 +7,7 @@ Colección de juegos que se ejecutan en frontend.
 * Emparejadas
 * Blackjack
 * Sudoku
+* Tarot
 * Simón
 
 ## Descripción de los juegos
@@ -22,6 +23,10 @@ Juego del Blackjack de 1 jugador contra la banca en su forma más sencilla. Se s
 ### Sudoku
 
 Juego que genera un Sudoku aleatorio a través de un script creado por Google Gemini. El juego permite rellenar las casillas pendientes y si se rellena del todo, habilita el botón de comprobar para validar si se ha resuelto el sudoku correctamente.
+
+### Tarot
+
+Juego que echa las cartas del Tarot en un formato sencillo: una carta para el pasado, una para el presente y otra para el futuro. Los significados de las cartas se muestran una vez vueltas posicionando el cursor encima
 
 ### Simón
 
